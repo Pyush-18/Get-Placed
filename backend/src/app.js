@@ -4,7 +4,7 @@ import cors from "cors"
 import path from "path"
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://get-placed-18lp.onrender.com",
     credentials: true
 }
 const app = express()
