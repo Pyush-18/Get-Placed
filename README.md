@@ -6,6 +6,7 @@ Get Placed is a MERN stack web application built to streamline campus placements
 ## 🔹 Why "Get Placed"?
 
 🚫 No more WhatsApp message chaos!
+
 ✅ A centralized platform where students can view company details in one place.
 🎯 Never miss an opportunity—stay updated with the latest campus drives.
 
