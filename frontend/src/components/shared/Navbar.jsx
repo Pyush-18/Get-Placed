@@ -19,27 +19,17 @@ function Navbar() {
   const { authUser } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const resetJobSlice = () => ({type: "RESET_JOB_SLICE"})
-  const resetAuthSlice = () => ({type: "RESET_AUTH_SLICE"})
-  const resetApplicationSlice = () => ({type: "RESET_APPLICATION_SLICE"})
-  const resetCompanySlice = () => ({type: "RESET_COMPANY_SLICE"})
   const logoutHandler = async () => {
     try {
       const response = await axios.get(`${USER_API_ENDPOINT}/user/logout`, {
         withCredentials: true,
       });
-      console.log(response)
       if (response?.data?.success) {
-        dispatch(resetAuthSlice())
-        // dispatch(resetApplicationSlice())
-        // dispatch(resetCompanySlice())
-        // dispatch(resetJobSlice())
+        dispatch(setAuthUser(null))
         toast.success(response?.data?.message);
         navigate("/login");
       }
     } catch (error) {
-      console.log(error)
       toast.error(error?.response?.data?.message);
     }
   };

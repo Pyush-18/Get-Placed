@@ -9,9 +9,6 @@ const applicationSlice = createSlice({
         setAllApplicants : (state,action) => {
             state.allApplicants = action.payload
         }
-    },
-    extraReducers: (builder) => {
-        builder.addCase("RESET_APPLICATION_SLICE", () => initialState)
     }
 
 })
