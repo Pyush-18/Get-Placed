@@ -29,6 +29,7 @@ function Navbar() {
       const response = await axios.get(`${USER_API_ENDPOINT}/user/logout`, {
         withCredentials: true,
       });
+      console.log(response)
       if (response?.data?.success) {
         dispatch(resetAuthSlice())
         dispatch(resetApplicationSlice())
@@ -38,6 +39,7 @@ function Navbar() {
         navigate("/login");
       }
     } catch (error) {
+      console.log(error)
       toast.error(error?.response?.data?.message);
     }
   };
