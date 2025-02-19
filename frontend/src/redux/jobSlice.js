@@ -29,6 +29,9 @@ const jobSlice = createSlice({
         setSearchQuery : (state,action) => {
             state.searchQuery = action.payload
         },
+    },
+    extraReducers: (builder) => {
+        builder.addCase("RESET_JOB_SLICE", () => initialState)
     }
 })
 

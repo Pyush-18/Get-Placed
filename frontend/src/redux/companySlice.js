@@ -17,6 +17,9 @@ const companySlice = createSlice({
         setSearchCompany : (state, action) => {
             state.searchCompany = action.payload
         },
+    },
+    extraReducers: (builder) => {
+        builder.addCase("RESET_COMPANY_SLICE", () => initialState)
     }
 })
 

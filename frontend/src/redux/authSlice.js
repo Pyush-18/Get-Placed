@@ -13,6 +13,9 @@ const authSlice = createSlice({
         setAuthUser: (state, action) => {
             state.authUser = action.payload
         },
+    },
+    extraReducers: (builder) => {
+        builder.addCase("RESET_AUTH_SLICE", () => initialState)
     }
 })
 
