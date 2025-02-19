@@ -32,9 +32,9 @@ function Navbar() {
       console.log(response)
       if (response?.data?.success) {
         dispatch(resetAuthSlice())
-        dispatch(resetApplicationSlice())
-        dispatch(resetCompanySlice())
-        dispatch(resetJobSlice())
+        // dispatch(resetApplicationSlice())
+        // dispatch(resetCompanySlice())
+        // dispatch(resetJobSlice())
         toast.success(response?.data?.message);
         navigate("/login");
       }
