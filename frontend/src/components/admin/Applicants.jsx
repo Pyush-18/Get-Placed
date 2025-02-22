@@ -19,7 +19,6 @@ function Applicants() {
           `${USER_API_ENDPOINT}/application/applicants/${jobId}`,
           { withCredentials: true }
         );
-        console.log(response)
         dispatch(setAllApplicants(response?.data?.data?.application))
         if (response?.data?.success) {
 

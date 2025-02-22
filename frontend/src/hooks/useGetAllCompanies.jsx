@@ -10,12 +10,12 @@ function useGetAllCompanies() {
     const fetchCompanies = async () => {
       try {
         const response = await axios.get(`${USER_API_ENDPOINT}/company/get`,{withCredentials: true})
-        console.log(response)
+   
         if(response?.data?.success){
             dispatch(setCompanies(response?.data?.data))
         }
       } catch (error) {
-        console.log(error)
+        
       }
     };
     fetchCompanies();

@@ -21,7 +21,6 @@ function JobDescription() {
   const applyHandler = async() => {
     try {
       const response = await axios.get(`${USER_API_ENDPOINT}/application/apply/${singleJob?._id}`, {withCredentials: true})
-      console.log(response)
       if(response?.data?.success){
         setIsApplied(true)
         const updatedSingleJob = {...singleJob, application: [...singleJob.application, {applicants: authUser?._id}  ]}
@@ -37,13 +36,12 @@ function JobDescription() {
     const fetchJob = async() => {
         try {
             const response = await axios.get(`${USER_API_ENDPOINT}/job/get/${id}`,{withCredentials: true})
-            console.log(response)
+            
             if(response?.data?.success){
                 dispatch(setSingleJob(response?.data?.data))
                 setIsApplied(response?.data?.data?.application?.some((application) => application?.applicants === authUser?._id))
             }
         } catch (error) {
-            console.log(error)
             toast.error(error?.response?.data?.message)
         }
     }
