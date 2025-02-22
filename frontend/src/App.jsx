@@ -15,26 +15,28 @@ import CreateCompany from './components/admin/CreateCompany'
 import EditCompany from './components/admin/EditCompany'
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants'
+import ProtectedForStudentRoute from './components/shared/ProtectedForStudentRoute'
+import ProtectedForCompanyRoute from './components/shared/ProtectedForCompanyRoute'
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Home/>}/>
+      <Route path="/" element={<ProtectedForStudentRoute element={<Home/>}/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Signup/>}/>
-      <Route path="/job" element={<Jobs/>}/>
-      <Route path="/description/:id" element={<JobDescription/>}/>
-      <Route path="/browse" element={<Browse/>}/>
-      <Route path="/profile" element={<Profile/>}/>
+      <Route path="/job" element={<ProtectedForStudentRoute element={<Jobs/>} />}/>
+      <Route path="/description/:id" element={<ProtectedForStudentRoute element={<JobDescription/>}/>}/>
+      <Route path="/browse" element={<ProtectedForStudentRoute element={<Browse/>}/>}/>
+      <Route path="/profile" element={<ProtectedForStudentRoute element={<Profile/>}/>}/>
 
       //Admin
-      <Route path="/admin/companies" element={<Companies/>}/>
-      <Route path="/admin/companies/create" element={<CreateCompany/>}/>
-      <Route path="/admin/company/:companyId" element={<EditCompany/>}/>
-      <Route path="/admin/jobs" element={<AdminJobs/>}/>
-      <Route path="/admin/job/create" element={<PostJob/>}/>
-      <Route path="/admin/jobs/:jobId/applicants" element={<Applicants/>}/>
+      <Route path="/admin/companies" element={<ProtectedForCompanyRoute element={<Companies />}/>}/>
+      <Route path="/admin/companies/create" element={<ProtectedForCompanyRoute element={<CreateCompany />}/>}/>
+      <Route path="/admin/company/:companyId" element={<ProtectedForCompanyRoute element={<EditCompany/>}/>}/>
+      <Route path="/admin/jobs" element={<ProtectedForCompanyRoute element={<AdminJobs />}/>}/>
+      <Route path="/admin/job/create" element={<ProtectedForCompanyRoute element={<PostJob />}/>}/>
+      <Route path="/admin/jobs/:jobId/applicants" element={<ProtectedForCompanyRoute element={<Applicants/>}/>}/>
 
     </>
   )

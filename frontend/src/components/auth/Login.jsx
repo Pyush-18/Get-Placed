@@ -36,7 +36,8 @@ function Login() {
       if (response?.data?.success) {
         dispatch(setAuthUser(response?.data?.data))
         toast.success(response?.data?.message);
-        navigate("/");
+        const navigator = input.role === "student" ? "/" : "/admin/companies"
+        navigate(navigator);
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);
