@@ -19,7 +19,7 @@ function Profile() {
   return (
     <div>
       <Navbar />
-      <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8">
+      <div className="max-w-4xl dark:bg-slate-900 dark:text-white mx-auto bg-white border  border-gray-200 rounded-2xl my-5 p-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
             <Avatar>
@@ -30,7 +30,7 @@ function Profile() {
             </Avatar>
             <div>
               <h1 className="font-medium text-xl">{authUser?.fullName}</h1>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm dark:text-gray-100 text-gray-600">
                {authUser?.profile?.bio}
               </p>
             </div>
@@ -51,7 +51,7 @@ function Profile() {
         </div>
         <div className="mt-3">
           <h1>Skills</h1>
-          <div className="flex items-center gap-2 my-3">
+          <div className="flex flex-wrap items-center gap-2 my-3">
             {authUser?.profile?.skills.length <= 0 ? (
               <span className="text-red-500 text-md font-bold">No Skills</span>
             ) : (
@@ -65,9 +65,8 @@ function Profile() {
                 resume ? <Link to={authUser?.profile?.resume} target="_blank" rel="noopener noreferrer" className="text-blue-500 w-full hover:underline cursor-pointer">{authUser?.profile?.resumeOriginalName}</Link>: <span>NA</span>
             }
         </div>
-        <div className="max-w-4xl mx-auto bg-white rounded-xl">
+        <div className="max-w-4xl mx-auto dark:bg-slate-900 dark:text-white bg-white rounded-xl">
             <h1 className="font-bold text-lg my-5">Applied Job</h1>
-            {/* Applied jobs table */}
             <AppliedJobTable/>
 
         </div>

@@ -75,7 +75,7 @@ function UpdateProfileDialogBox({ open, setOpen }) {
   return (
     <Dialog open={open}>
       <DialogContent
-        className="sm:max-w-[425px]"
+        className="sm:max-w-[425px] dark:bg-slate-900 dark:text-white"
         onInteractOutside={() => setOpen(false)}
       >
         <DialogHeader>
@@ -164,12 +164,12 @@ function UpdateProfileDialogBox({ open, setOpen }) {
           </div>
           <DialogFooter>
             {loading ? (
-              <Button className="w-full my-4">
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <Button className="w-full dark:bg-blue-600 dark:text-white my-4">
+                <Loader2 className="mr-2  h-4 w-4 animate-spin" />
                 Please wait
               </Button>
             ) : (
-              <Button type="submit" className="w-full my-4">
+              <Button type="submit" className="w-full my-4 dark:bg-blue-600 dark:text-white">
                 Update
               </Button>
             )}

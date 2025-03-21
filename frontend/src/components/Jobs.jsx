@@ -24,9 +24,9 @@ function Jobs() {
     <div>
       <Navbar />
       {/* filterPage */}
-      <div className="max-w-7xl mx-auto mt-5">
+      <div className="max-w-7xl mx-auto mt-5 px-2">
         <div className="flex gap-5">
-          <div className="w-[20%]">
+          <div className="lg:w-[20%] w-[40%]">
             <FilterCard />
           </div>
           {/* job post card */}
@@ -34,7 +34,7 @@ function Jobs() {
             <span>No Job Available</span>
           ) : (
             <div className="flex-1 h-[88vh] overflow-y-auto pb-5">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid lg:grid-cols-3 gap-4">
                 {filterJobs?.map((job) => (
                   <motion.div
                   initial={{opacity: 0, x: 100}}

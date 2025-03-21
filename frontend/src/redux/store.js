@@ -3,6 +3,7 @@ import authReducer from "../redux/authSlice.js"
 import jobReducer from "../redux/jobSlice.js"
 import companyReducer from "../redux/companySlice.js"
 import applicationReducer from "../redux/applicationSlice.js"
+import themeModeReducer from "../redux/themeSlice.js"
 import {
     persistReducer,
     FLUSH,
@@ -24,7 +25,8 @@ import {
     auth: authReducer,
     job: jobReducer,
     company: companyReducer,
-    application : applicationReducer
+    application : applicationReducer,
+    theme: themeModeReducer
   })
 
   const persistedReducer = persistReducer(persistConfig, rootReducer)

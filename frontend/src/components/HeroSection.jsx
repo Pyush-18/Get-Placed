@@ -34,7 +34,7 @@ function HeroSection() {
         onChange={(e) => setQuery(e.target.value)}
           type="text"
           placeholder="Find your dream jobs"
-          className="outline-none border-none w-full"
+          className="outline-none dark:bg-slate-900 dark:text-white border-none w-full"
         />
         <button onClick={searchHandler} className="rounded-r-full p-3 bg-[#6A28C2] ">
           <Search

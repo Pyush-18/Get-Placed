@@ -24,6 +24,7 @@ function JobDescription() {
       if(response?.data?.success){
         setIsApplied(true)
         const updatedSingleJob = {...singleJob, application: [...singleJob.application, {applicants: authUser?._id}  ]}
+
         dispatch(setSingleJob(updatedSingleJob))
         toast.success(response?.data?.message)
       }
@@ -49,18 +50,18 @@ function JobDescription() {
  },[dispatch, authUser?._id, id])
 
   return (
-    <div className="max-w-7xl mx-auto my-10 border border-gray-100 shadow-lg p-5 rounded-md">
+    <div className="max-w-7xl dark:bg-slate-900 dark:text-white mx-auto my-10 border border-gray-100 shadow-lg p-5 rounded-md">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="font-bold text-xl">{singleJob?.company?.name}</h1>
           <div className="flex gap-3 items-center mt-4">
-            <Badge className={`text-blue-700 font-bold `} variant="ghost">
+            <Badge className={`text-blue-700 font-bold dark:border-white`} variant="ghost">
               {singleJob?.noOfOpening} Position
             </Badge>
-            <Badge className={`text-[#F83002] font-bold `} variant="ghost">
+            <Badge className={`text-[#F83002] font-bold dark:border-white`} variant="ghost">
               {singleJob?.jobType}
             </Badge>
-            <Badge className={`text-[#7209b7] font-bold `} variant="ghost">
+            <Badge className={`text-[#7209b7] font-bold dark:border-white`} variant="ghost">
               {singleJob?.salary} LPA
             </Badge>
           </div>
@@ -70,7 +71,7 @@ function JobDescription() {
           disabled={isApplied}
           className={`${
             isApplied
-              ? "bg-gray-600 cursor-not-allowed"
+              ? "bg-gray-600 dark:bg-gray-100 cursor-not-allowed"
               : "bg-purple-700 hover:bg-purple-600"
           } rounded-lg`}
         >
@@ -83,49 +84,49 @@ function JobDescription() {
       <div className="mt-3">
         <h1 className="font-bold my-1">
           Role:{" "}
-          <span className="pl-4 font-normal text-gray-800 ">
+          <span className="pl-4 dark:text-gray-200 font-normal text-gray-800 ">
             {singleJob?.title}
           </span>
         </h1>
         <h1 className="font-bold my-1">
           Location:{" "}
-          <span className="pl-4 font-normal text-gray-800 ">
+          <span className="pl-4 dark:text-gray-200 font-normal text-gray-800 ">
             {singleJob?.location}
           </span>
         </h1>
         <h1 className="font-bold my-1">
           Description:{" "}
-          <span className="pl-4 font-normal text-gray-800 ">
+          <span className="pl-4 dark:text-gray-200 font-normal text-gray-800 ">
             {singleJob?.description}
           </span>
         </h1>
         <h1 className="font-bold my-1">
           Requirements:{" "}
           {singleJob?.requirements?.map((value) => (
-            <span className="pl-4 font-normal text-gray-800 ">{value.trim()}</span>
+            <span className="pl-4 dark:text-gray-200 font-normal text-gray-800 ">{value.trim()}</span>
           ))}
         </h1>
         <h1 className="font-bold my-1">
           Exprience:{" "}
-          <span className="pl-4 font-normal text-gray-800 ">
+          <span className="pl-4 dark:text-gray-200 font-normal text-gray-800 ">
             {singleJob?.exprience} year
           </span>
         </h1>
         <h1 className="font-bold my-1">
           Salary:{" "}
-          <span className="pl-4 font-normal text-gray-800 ">
-            {singleJob?.salary}
+          <span className="pl-4 dark:text-gray-200 font-normal text-gray-800 ">
+            {singleJob?.salary} LPA
           </span>
         </h1>
         <h1 className="font-bold my-1">
           Total Applicants:{" "}
-          <span className="pl-4 font-normal text-gray-800 ">
+          <span className="pl-4 dark:text-gray-200 font-normal text-gray-800 ">
             {singleJob?.application?.length}
           </span>
         </h1>
         <h1 className="font-bold my-1">
           Posted Date:{" "}
-          <span className="pl-4 font-normal text-gray-800 ">
+          <span className="pl-4 dark:text-gray-200 font-normal text-gray-800 ">
             {date?.toLocaleDateString()}
           </span>
         </h1>

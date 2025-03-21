@@ -32,7 +32,7 @@ function FilterCard() {
     dispatch(setSearchQuery(filterValue))
   },[filterValue])
   return (
-    <div className="w-full bg-white p-3 rounded-md shadow-lg">
+    <div className="w-full dark:bg-slate-900 dark:text-white sticky bg-white p-3 rounded-md shadow-lg">
       <h1 className="font-bold text-lg ">Filter Job</h1>
       <hr className="mt-3" />
       <RadioGroup value={filterValue} onValueChange={filterHandler}>

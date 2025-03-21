@@ -15,7 +15,7 @@ function ApplicationTable() {
   const { appliedJobs } = useSelector((store) => store.job)
  
   return (
-    <div>
+    <div className="dark:bg-slate-900 dark:text-white">
       <Table>
         <TableCaption>A list of your Applied Jobs.</TableCaption>
         <TableHeader>
@@ -28,7 +28,7 @@ function ApplicationTable() {
         </TableHeader>
         <TableBody>
           {appliedJobs?.length <= 0 ? (
-            <span>You haven't applied in any job</span>
+            <span className="dark:text-gray-100">You haven't applied in any job</span>
           ) : (
             appliedJobs?.map((job) => (
               <TableRow key={job?._id}>

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Toggle } from "@/components/ui/toggle"
+import { SunDim } from 'lucide-react';
+import { SunMoon } from 'lucide-react';
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { LogOut, User2 } from "lucide-react";
@@ -14,11 +17,28 @@ import { USER_API_ENDPOINT } from "@/utils/Api_End_point";
 import { toast } from "sonner";
 import { setAuthUser } from "@/redux/authSlice";
 import { setJobs, setSingleJob } from "@/redux/jobSlice";
+import { setThemeMode, setToggleTheme } from "@/redux/themeSlice";
 
 function Navbar() {
   const { authUser } = useSelector((store) => store.auth);
+  const { toggleTheme, themeMode } = useSelector((store) => store.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const handleTheme = () => {
+    if(toggleTheme){
+      dispatch(setThemeMode(true))
+      dispatch(setToggleTheme(false))
+    }else{
+      dispatch(setThemeMode(false))
+      dispatch(setToggleTheme(true))
+
+    }
+  }
+
+  useEffect(() => {
+    document.querySelector('html').classList.remove("light", "dark")
+    document.querySelector('html').classList.add(themeMode)
+  },[themeMode])
   const logoutHandler = async () => {
     try {
       const response = await axios.get(`${USER_API_ENDPOINT}/user/logout`, {
@@ -34,7 +54,7 @@ function Navbar() {
     }
   };
   return (
-    <div className="bg-white ">
+    <div className="bg-white rounded-md dark:bg-slate-900 dark:text-white p-2">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 ">
         <div className="">
           <h1 className="text-2xl font-bold">
@@ -85,8 +105,8 @@ function Navbar() {
                   />
                 </Avatar>
               </PopoverTrigger>
-              <PopoverContent className="w-60 md:w-56">
-                <div className="flex items-center gap-3">
+              <PopoverContent className="w-60 dark:bg-slate-900 dark:text-white md:w-56">
+                <div className="flex justify-between items-center gap-3">
                   <Avatar className="cursor-pointer">
                     <AvatarImage
                       src={authUser?.profile?.avatar}
@@ -98,6 +118,13 @@ function Navbar() {
                     <p className="text-sm text-muted-foreground">
                       {authUser?.role?.toUpperCase()}
                     </p>
+                  </div>
+                  <div onClick={handleTheme}>
+                    <Toggle>
+                      {
+                        !toggleTheme ? <SunDim className="h-4 w-4"/> : <SunMoon className="h-4 w-4"/>
+                      }
+                    </Toggle>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">

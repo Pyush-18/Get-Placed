@@ -17,9 +17,9 @@ function Browse() {
   return (
     <div>
       <Navbar />
-      <div className="max-w-7xl mx-auto my-10">
+      <div className="max-w-7xl mx-auto my-10 px-2">
         <h1 className="font-bold text-xl my-10">Search Results ({jobs?.length || 0})</h1>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid lg:grid-cols-3 gap-4">
           {jobs?.map((job) => (
             <div key={job?._id}>
               <Job job={job}/>
