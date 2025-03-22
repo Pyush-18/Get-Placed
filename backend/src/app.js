@@ -2,9 +2,9 @@ import express from "express"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 import path from "path"
-// https://get-placed-18lp.onrender.com
+
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://get-placed-18lp.onrender.com",
     credentials: true
 }
 const app = express()
