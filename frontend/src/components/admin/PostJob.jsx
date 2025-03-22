@@ -83,10 +83,10 @@ function PostJob() {
   return (
     <div>
       <Navbar />
-      <div className="flex items-center justify-center w-screen my-5">
+      <div className="flex  items-center justify-center w-screen my-5">
         <form
           onSubmit={postJob}
-          className="bg-white shadow-lg p-8 rounded-md max-w-4xl border border-gray-200"
+          className="bg-white dark:bg-black dark:text-white dark:border-gray-600 shadow-lg p-8 rounded-md max-w-4xl border border-gray-200"
         >
           <h1 className="font-bold text-3xl mb-8 uppercase">Create Job</h1>
           <div className="grid grid-cols-2 gap-2 ">

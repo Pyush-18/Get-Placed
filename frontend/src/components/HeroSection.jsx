@@ -17,7 +17,7 @@ function HeroSection() {
   return (
     <div className="text-center">
       <div className="flex flex-col gap-5 py-10">
-        <span className="px-4 py-2 rounded-full bg-gray-300 text-red-500 font-medium mx-auto">
+        <span className="px-4 py-2 rounded-full dark:bg-black dark:border dark:border-gray-700 bg-gray-300 text-red-500 font-medium mx-auto">
           No. 1 Job Hunt Website
         </span>
         <h1 className="text-4xl lg:text-5xl font-bold">
@@ -28,13 +28,13 @@ function HeroSection() {
         With hard work (like Arjuna) and divine wisdom (like Krishna), success and prosperity will always be with you.
         </p>
       </div>
-      <div className="flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto">
+      <div className="flex w-[40%] shadow-lg border dark:border-gray-700 border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto">
         <input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
           type="text"
           placeholder="Find your dream jobs"
-          className="outline-none dark:bg-slate-900 dark:text-white border-none w-full"
+          className="outline-none dark:bg-black dark:text-white  border-none w-full"
         />
         <button onClick={searchHandler} className="rounded-r-full p-3 bg-[#6A28C2] ">
           <Search

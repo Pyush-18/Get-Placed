@@ -15,7 +15,7 @@ function ApplicationTable() {
   const { appliedJobs } = useSelector((store) => store.job)
  
   return (
-    <div className="dark:bg-slate-900 dark:text-white">
+    <div className="dark:bg-black dark:text-white">
       <Table>
         <TableCaption>A list of your Applied Jobs.</TableCaption>
         <TableHeader>
@@ -36,7 +36,7 @@ function ApplicationTable() {
                 <TableCell>{job?.job?.title}</TableCell>
                 <TableCell>{job?.job?.company?.name}</TableCell>
                 <TableCell className="text-right">
-                  <Badge className={`w-[70px] ${job?.status === "rejected" ? "bg-red-500 hover:bg-red-600" : job?.status === "pending" ? "bg-gray-700 hover:bg-gray-800" : "bg-green-500 hover:bg-green-600"}`}>{job?.status}</Badge>
+                  <Badge className={`w-[70px] ${job?.status === "rejected" ? "bg-red-500 hover:bg-red-600" : job?.status === "pending" ? "bg-gray-700 dark:bg-gray-400 dark:hover:bg-gray-500 hover:bg-gray-800" : "bg-green-500 hover:bg-green-600"}`}>{job?.status}</Badge>
                 </TableCell>
               </TableRow>
             ))

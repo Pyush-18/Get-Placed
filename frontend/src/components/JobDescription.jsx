@@ -50,18 +50,18 @@ function JobDescription() {
  },[dispatch, authUser?._id, id])
 
   return (
-    <div className="max-w-7xl dark:bg-slate-900 dark:text-white mx-auto my-10 border border-gray-100 shadow-lg p-5 rounded-md">
+    <div className="max-w-7xl dark:border-gray-700  mx-auto my-10 border border-gray-100 shadow-lg p-5 rounded-md">
       <div className="flex justify-between items-center">
         <div>
           <h1 className="font-bold text-xl">{singleJob?.company?.name}</h1>
           <div className="flex gap-3 items-center mt-4">
-            <Badge className={`text-blue-700 font-bold dark:border-white`} variant="ghost">
+            <Badge className={`text-blue-700 font-bold dark:border-gray-600`} variant="ghost">
               {singleJob?.noOfOpening} Position
             </Badge>
-            <Badge className={`text-[#F83002] font-bold dark:border-white`} variant="ghost">
+            <Badge className={`text-[#F83002] font-bold dark:border-gray-600`} variant="ghost">
               {singleJob?.jobType}
             </Badge>
-            <Badge className={`text-[#7209b7] font-bold dark:border-white`} variant="ghost">
+            <Badge className={`text-[#7209b7] font-bold dark:border-gray-600`} variant="ghost">
               {singleJob?.salary} LPA
             </Badge>
           </div>
@@ -78,7 +78,7 @@ function JobDescription() {
           {isApplied ? "Applied" : "Apply Now"}
         </Button>
       </div>
-      <h1 className="border-b py-4 border-b-gray-300 font-medium">
+      <h1 className="border-b py-4 dark:border-b-gray-600 border-b-gray-300 font-medium">
         {singleJob?.company?.description}
       </h1>
       <div className="mt-3">

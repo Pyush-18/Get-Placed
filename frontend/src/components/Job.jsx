@@ -17,7 +17,7 @@ function Job({ job }) {
   };
 
   return (
-    <div className="p-5 rounded-md shadow-xl bg-white border border-gray-100 dark:bg-slate-900 dark:text-white">
+    <div className="p-5 rounded-md shadow-xl bg-white border dark:bg-black dark:text-white dark:border-gray-700 border-gray-100 ">
       <div className="flex items-center justify-between">
         <p className="text-sm dark:text-gray-200 text-gray-500">
           {daysAgoMethod(job?.createdAt) === 0
@@ -49,19 +49,19 @@ function Job({ job }) {
       </div>
       <div className="flex gap-3 items-center mt-4">
         <Badge
-          className={`text-blue-700 font-bold dark:border-white`}
+          className={`text-blue-700 font-bold dark:border-gray-500`}
           variant="ghost"
         >
           {job?.noOfOpening} Position
         </Badge>
         <Badge
-          className={`text-[#F83002] font-bold dark:border-white`}
+          className={`text-[#F83002] font-bold dark:border-gray-500`}
           variant="ghost"
         >
           {job?.jobType}
         </Badge>
         <Badge
-          className={`text-[#7209b7] font-bold dark:border-white`}
+          className={`text-[#7209b7] font-bold dark:border-gray-500`}
           variant="ghost"
         >
           {job?.salary} LPA

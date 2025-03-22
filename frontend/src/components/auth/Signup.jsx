@@ -7,11 +7,10 @@ import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { USER_API_ENDPOINT } from "@/utils/Api_End_point.js";
-import { toast } from "sonner"
+import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
-
 
 function Signup() {
   const [input, setInput] = useState({
@@ -24,7 +23,7 @@ function Signup() {
   });
   const { loading } = useSelector((store) => store.auth);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
@@ -32,14 +31,14 @@ function Signup() {
     setInput({ ...input, [name]: value });
   };
   const changeFileHandler = (e) => {
-    const file = e.target.files?.[0] 
-    setInput({ ...input, avatar: file});
+    const file = e.target.files?.[0];
+    setInput({ ...input, avatar: file });
   };
 
   const registerHandler = async (e) => {
     e.preventDefault();
     try {
-      dispatch(setLoading(true))
+      dispatch(setLoading(true));
       const formData = new FormData();
       formData.append("fullName", input.fullName);
       formData.append("email", input.email);
@@ -61,14 +60,14 @@ function Signup() {
           withCredentials: true,
         }
       );
-      if(response?.data?.success){
-        toast.success(response?.data?.message)
-        navigate("/login")
+      if (response?.data?.success) {
+        toast.success(response?.data?.message);
+        navigate("/login");
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);
-    }finally{
-      dispatch(setLoading(false))
+    } finally {
+      dispatch(setLoading(false));
     }
   };
   return (
@@ -77,7 +76,7 @@ function Signup() {
       <div className="flex items-center justify-center max-w-7xl mx-auto">
         <form
           onSubmit={(e) => registerHandler(e)}
-          className="w-1/2 border border-gray-200 rounded-e-md p-4 my-10"
+          className="w-1/2 border border-gray-200 dark:border-gray-600 rounded-md p-4 my-10"
         >
           <h1 className="font-bold text-xl mb-5">Sign Up</h1>
           <div>
@@ -161,21 +160,23 @@ function Signup() {
             </div>
           </div>
           {loading ? (
-              <Button className="w-full my-4" >
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Please wait
-              </Button>
-            ) : (
-              <Button type="submit" className="w-full my-4">
-                Signup
-              </Button>
-            )}
-          <span>
-            Already have an account?{" "}
-            <Link to="/login" className="text-blue-600">
-              Login
-            </Link>
-          </span>
+            <Button className="w-full my-4">
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Please wait
+            </Button>
+          ) : (
+            <Button type="submit" className="w-full my-4">
+              Signup
+            </Button>
+          )}
+          <div className="text-center">
+            <span>
+              Already have an account?{" "}
+              <Link to="/login" className="text-blue-600">
+                Login
+              </Link>
+            </span>
+          </div>
         </form>
       </div>
     </div>

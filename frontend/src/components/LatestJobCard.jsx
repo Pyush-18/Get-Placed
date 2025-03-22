@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function LatestJobCard({ job }) {
   const navigate = useNavigate()
   return (
-    <div onClick={() => navigate(`/description/${job?._id}`)} className="p-5 rounded-md shadow-xl bg-white border border-gray-100 cursor-pointer dark:bg-slate-900 dark:text-white">
+    <div onClick={() => navigate(`/description/${job?._id}`)} className="p-5 rounded-md shadow-xl bg-white border border-gray-100 dark:bg-black hover:scale-110 transition-transform duration-200 dark:text-white dark:border-gray-700 cursor-pointer ">
       <div>
         <h1 className="font-medium text-lg">{job?.company?.name}</h1>
         <p className="text-sm dark:text-gray-200 text-gray-500">{job?.location}</p>
@@ -15,9 +15,9 @@ function LatestJobCard({ job }) {
         <p className="text-sm dark:text-gray-200 text-gray-600">{job?.description}</p>
       </div>
       <div className="flex gap-3 items-center mt-4">
-        <Badge className={`text-blue-700 font-bold dark:border-white `} variant="ghost">{job?.noOfOpening} Position</Badge>
-        <Badge className={`text-[#F83002] font-bold  dark:border-white`} variant="ghost">{job?.jobType}</Badge>
-        <Badge className={`text-[#7209b7] font-bold dark:border-white`} variant="ghost">{job?.salary} LPA</Badge>
+        <Badge className={`text-blue-700 font-bold dark:border-gray-500 `} variant="ghost">{job?.noOfOpening} Position</Badge>
+        <Badge className={`text-[#F83002] font-bold  dark:border-gray-500`} variant="ghost">{job?.jobType}</Badge>
+        <Badge className={`text-[#7209b7] font-bold dark:border-gray-500`} variant="ghost">{job?.salary} LPA</Badge>
       </div>
     </div>
   );

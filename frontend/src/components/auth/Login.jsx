@@ -30,13 +30,17 @@ function Login() {
     e.preventDefault();
     try {
       dispatch(setLoading(true));
-      const response = await axios.post(`${USER_API_ENDPOINT}/user/login`, input, {
-        withCredentials: true,
-      });
+      const response = await axios.post(
+        `${USER_API_ENDPOINT}/user/login`,
+        input,
+        {
+          withCredentials: true,
+        }
+      );
       if (response?.data?.success) {
-        dispatch(setAuthUser(response?.data?.data))
+        dispatch(setAuthUser(response?.data?.data));
         toast.success(response?.data?.message);
-        const navigator = input.role === "student" ? "/" : "/admin/companies"
+        const navigator = input.role === "student" ? "/" : "/admin/companies";
         navigate(navigator);
       }
     } catch (error) {
@@ -46,9 +50,7 @@ function Login() {
     }
   };
 
-  useEffect(() => {
-    
-  })
+  useEffect(() => {});
   return (
     <div>
       <div>
@@ -57,7 +59,7 @@ function Login() {
         <div className="flex items-center justify-center max-w-7xl mx-auto">
           <form
             onSubmit={(e) => loginHandler(e)}
-            className="w-1/2 border border-gray-200 rounded-e-md p-4 my-10"
+            className="w-1/2 border border-gray-200 dark:border-gray-600 rounded-md p-4 my-10"
           >
             <h1 className="font-bold text-xl mb-5">Login</h1>
 
@@ -114,7 +116,7 @@ function Login() {
               </RadioGroup>
             </div>
             {loading ? (
-              <Button className="w-full my-4" >
+              <Button className="w-full my-4">
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 Please wait
               </Button>
@@ -124,12 +126,14 @@ function Login() {
               </Button>
             )}
 
-            <span>
-              Don't have a account?{" "}
-              <Link to="/register" className="text-blue-600">
-                Signup
-              </Link>
-            </span>
+            <div className="text-center">
+              <span>
+                Don't have a account?{" "}
+                <Link to="/register" className="text-blue-600">
+                  Signup
+                </Link>
+              </span>
+            </div>
           </form>
         </div>
       </div>

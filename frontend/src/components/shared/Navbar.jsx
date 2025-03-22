@@ -54,7 +54,7 @@ function Navbar() {
     }
   };
   return (
-    <div className="bg-white rounded-md dark:bg-slate-900 dark:text-white p-2">
+    <div className="bg-white dark:bg-black dark:border dark:border-gray-700 dark:text-white rounded-md  p-2">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 ">
         <div className="">
           <h1 className="text-2xl font-bold">
@@ -105,7 +105,7 @@ function Navbar() {
                   />
                 </Avatar>
               </PopoverTrigger>
-              <PopoverContent className="w-60 dark:bg-slate-900 dark:text-white md:w-56">
+              <PopoverContent className="w-60  md:w-56">
                 <div className="flex justify-between items-center gap-3">
                   <Avatar className="cursor-pointer">
                     <AvatarImage

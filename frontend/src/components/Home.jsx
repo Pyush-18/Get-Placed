@@ -18,7 +18,7 @@ function Home() {
     }
   },[])
   return (
-    <div className='p-2 dark:bg-slate-900 dark:text-white overflow-hidden'>
+    <div className='p-2 lg:p-0  overflow-hidden'>
       <Navbar/>
       <HeroSection/>
       <CategoryCarousel/>

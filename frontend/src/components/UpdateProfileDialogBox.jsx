@@ -75,7 +75,7 @@ function UpdateProfileDialogBox({ open, setOpen }) {
   return (
     <Dialog open={open}>
       <DialogContent
-        className="sm:max-w-[425px] dark:bg-slate-900 dark:text-white"
+        className="sm:max-w-[425px] "
         onInteractOutside={() => setOpen(false)}
       >
         <DialogHeader>
